@@ -1,11 +1,4 @@
-from pydantic import BaseModel, Field
-
 from domain.board.BoardRepository import BoardRepository
-
-
-class Board(BaseModel):
-    name: str
-    description: str
 
 
 class BoardService:

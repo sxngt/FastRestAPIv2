@@ -10,14 +10,15 @@ generator db {
   recursive_type_depth = 5
 }
 
-model Post {
-  id    String  @id @default(cuid())
-  title String
-  desc  String?
-}
-
 model Board {
   id          Int    @id @default(autoincrement())
   name        String
   description String
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  name     String
+  username String @unique
+  password String
 }
