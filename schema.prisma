@@ -1,0 +1,23 @@
+datasource db {
+  // could be postgresql or mysql
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator db {
+  provider             = "prisma-client-py"
+  interface            = "asyncio"
+  recursive_type_depth = 5
+}
+
+model Post {
+  id    String  @id @default(cuid())
+  title String
+  desc  String?
+}
+
+model Board {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+}
